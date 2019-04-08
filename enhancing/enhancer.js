@@ -1,22 +1,28 @@
 module.exports = {
-  succeed,
-  fail,
+  // succeed,
+  // fail,
+  // repair,
+  // get,
   repair,
-  get,
 };
 
-function succeed(item) {
-  return { ...item };
-}
-
-function fail(item) {
-  return { ...item };
-}
-
 function repair(item) {
-  return { ...item };
+  if(0 <= item.durability <= 100 && Number.isInteger(item.durability)){
+    newItem = item;
+    newItem.durability = 100;
+    return newItem;
+  }
+  return item;
 }
 
-function get(item) {
-  return { ...item };
-}
+// function succeed(item) {
+//   return { ...item };
+// }
+
+// function fail(item) {
+//   return { ...item };
+// }
+
+// function get(item) {
+//   return { ...item };
+// }
