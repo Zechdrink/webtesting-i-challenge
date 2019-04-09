@@ -36,31 +36,57 @@ describe('success', () => {
             durability: 99,
         })
         
-        console.log(anotherItem);
+        console.log("anotherItem", anotherItem);
 
     })
 
 })
 
 
-// describe('fail', () => {
+describe('fail', () => {
 
-//     test('Decreases durability and enhancements for items depending on enhancement level', ()=>{
+    test('Decreases durability and enhancements for items depending on enhancement level', ()=>{
 
-//         rareItem = {
-//             name: 'Broom',
-//             enhancement: 17,
-//             durability: 85
-//         }
+        rareItem = {
+            name: 'Broom',
+            enhancement: 12,
+            durability: 85
+        }
 
-//         expect(enhancer.fail(rareitem)).toEqual({
-//             name: 'Broom',
-//             enhancement: 16,
-//             durability: 75
-//         })
+        uncommonItem = {
+            name: 'Ray Gun',
+            enhancement: 17,
+            durability: 100
+        }
 
-//         console.log(rareItem);
+        commonItem = {
+            name: 'Ray Machine Gun',
+            enhancement: 16,
+            durability: 90
+        }
+
+        expect(enhancer.fail(rareItem)).toEqual({
+            name: 'Broom',
+            enhancement: 12,
+            durability: 80
+        })
+
+        expect(enhancer.fail(uncommonItem)).toEqual({
+            name: 'Ray Gun',
+            enhancement: 16,
+            durability: 90
+        })
+
+        expect(enhancer.fail(commonItem)).toEqual({
+            name: 'Ray Machine Gun',
+            enhancement: 16,
+            durability: 80
+        })
+
+        console.log("rareItem", rareItem);
+        console.log("uncommonItem", uncommonItem);
+        console.log("commonItem", commonItem);
         
-//     })
+    })
 
-// })
+})

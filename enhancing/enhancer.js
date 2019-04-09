@@ -1,6 +1,6 @@
 module.exports = {
   success,
-  // fail,
+  fail,
   repair,
   // get,
  
@@ -30,7 +30,26 @@ function success(item) {
 // (17 goes down to 16, 18 goes down to 17).
 
 function fail(item) {
-  if(item.enhancement)
+  if(6 <= item.enhancement && item.enhancement < 15 && Number.isInteger(item.enhancement)){
+    newItem = item;
+    newItem.durability = item.durability - 5;
+    
+    return newItem;
+
+  } else if(14 < item.enhancement && item.enhancement < 21 && Number.isInteger(item.enhancement)){
+    newItem = item;
+    newItem.durability = item.durability - 10;
+    
+      if(item.enhancement > 16){
+        newItem.enhancement = item.enhancement - 1;
+
+        return newItem
+
+    } else {
+      return newItem
+    }
+    
+  }
   return { ...item };
 }
 
